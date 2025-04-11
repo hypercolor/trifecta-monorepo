@@ -1,0 +1,8 @@
+build
+node_modules
+.idea
+.DS_Store
+.yarn
+.env
+**/*.gz
+tsconfig.buildinfo
