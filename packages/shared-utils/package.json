@@ -1,5 +1,5 @@
 {
-  "name": "shared-utils",
+  "name": "@repo/shared-utils",
   "version": "0.0.0",
   "private": true,
   "license": "MIT",
@@ -14,7 +14,7 @@
   },
   "dependencies": {
     "reflect-metadata": "^0.1.14",
-    "shared-types": "workspace:*",
+    "@repo/shared-types": "workspace:*",
     "ts-custom-error": "^3.3.1"
   },
   "devDependencies": {
