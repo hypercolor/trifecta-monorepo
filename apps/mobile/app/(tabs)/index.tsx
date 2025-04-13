@@ -3,7 +3,7 @@ import { Image, StyleSheet, Platform } from 'react-native';
 import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
-import { Mapper, UserResponseDto } from 'shared-types';
+import { Mapper, UserResponseDto } from '@repo/shared-types';
 
 export default function HomeScreen() {
 

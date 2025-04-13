@@ -1,4 +1,4 @@
-import {AnotherTest} from "shared-types";
+import {AnotherTest} from "@repo/shared-types";
 
 const anotherTest = new AnotherTest(1, 'John Doe');
 console.log('anotherTest: ', anotherTest);

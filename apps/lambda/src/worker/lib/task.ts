@@ -1,6 +1,6 @@
-import { Mapper } from "shared-types";
+import { Mapper } from "@repo/shared-types";
 import { ILambdaSubmitterConfig, ITaskResult } from './sqs-worker-types';
-import SQS from 'aws-sdk/clients/sqs';
+import { SQSClient, SendMessageCommand } from "@aws-sdk/client-sqs";
 
 export interface ITask {
   runWrapper(): Promise<ITaskResult | void>;
@@ -32,31 +32,21 @@ abstract class Task {
         parameters: this,
       };
 
-      // const record = await SqsMessageRepository.save(SqsMessageRepository.create({
-      //   createdAt: new Date(),
-      //   type: params.type,
-      //   parameters: params.parameters,
-      //   queueUrl: config.sqsUrl,
-      // }));
+      const sqsClient = new SQSClient({}); // Initialize the SQS client
 
-      // (params).messageId = record.sqsMessageId.toString();
-
-      return new SQS({
-        // credentials,
-        // region,
-      })
-        .sendMessage({
-          DelaySeconds: delaySeconds || 0,
-          MessageAttributes: {
-            type: {
-              DataType: 'String',
-              StringValue: this.constructor.name,
-            },
+      const command = new SendMessageCommand({
+        DelaySeconds: delaySeconds || 0,
+        MessageAttributes: {
+          type: {
+            DataType: 'String',
+            StringValue: this.constructor.name,
           },
-          MessageBody: JSON.stringify(params),
-          QueueUrl: config.sqsUrl,
-        })
-        .promise();
+        },
+        MessageBody: JSON.stringify(params),
+        QueueUrl: config.sqsUrl,
+      });
+
+      return sqsClient.send(command);
     }
   }
 }
@@ -77,3 +67,4 @@ export abstract class NonRetryableTask extends Task {
     }
   }
 }
+

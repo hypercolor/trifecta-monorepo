@@ -1,7 +1,6 @@
 import type { MetaFunction } from "@remix-run/node";
-import {Mapper, TestClass, UserResponseDto} from "shared-types";
-import {Keygen} from "shared-utils";
-import {InvalidParameterError} from "shared-utils/src/utils/errors";
+import {Mapper, TestClass, UserResponseDto} from "@repo/shared-types";
+import {Keygen} from "@repo/shared-utils";
 
 export const meta: MetaFunction = () => {
   return [

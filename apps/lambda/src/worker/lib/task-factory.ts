@@ -1,4 +1,4 @@
-import { Mapper } from "shared-types";
+import { Mapper } from "@repo/shared-types";
 import {ITaskClass} from './sqs-worker-types';
 import { ITask } from './task';
 

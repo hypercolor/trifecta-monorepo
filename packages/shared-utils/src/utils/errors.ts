@@ -1,5 +1,5 @@
 import { CustomError } from 'ts-custom-error';
-import {HttpStatusCode, IMeta} from "shared-types";
+import {HttpStatusCode, IMeta} from "@repo/shared-types";
 
 
 export type IDomainErrorClass = new(message: string) => DomainError;

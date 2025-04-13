@@ -4,7 +4,7 @@ import {TaskExecutor} from "../worker/lib/task-executor";
 import {Message} from "@aws-sdk/client-sqs";
 import { WorkerInitializer } from '../worker/worker-initializer';
 import {Config} from "../util/config";
-import { Mapper, UserResponseDto } from "shared-types";
+import { Mapper, UserResponseDto } from "@repo/shared-types";
 
 const user = Mapper.mapInput({
   id: 1,
